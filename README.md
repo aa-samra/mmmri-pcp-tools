@@ -4,6 +4,7 @@ For several decades, magnetic resonance imaging (MRI) have been used to assist i
 In this contexts, available datasets introduce many difficulties in preprocessing for benchmarking models, due to inconsistency, missing data and other issues.
 
 In this repo, we aim to develop and implement docker-container with interface (API). This API includes pipelines for creation and preprocessing of fMRI, sMRI and DTI datasets. 
+![image](files/Users/jzhang/Desktop/Isolated.png)
 
 ## Buiding docker image
 this image contains FSL tools, Anaconda, and scripts for preprocessing of various modalities, to build docker image use the command in the directory you clone the repo to:
