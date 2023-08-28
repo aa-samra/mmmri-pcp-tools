@@ -10,3 +10,23 @@ this image contains FSL tools, Anaconda, and scripts for preprocessing of variou
 ```
 docker build . -t mmmri-pcp-tools
 ```
+
+## Running the API
+to run the API, use the command: 
+```
+docker container run \
+    -it \
+    --gpus=1 \
+    --cpus=4 \
+    --name my-mmmri-pcp \
+    -v <your_data_dir>:<data_dir_in_containter>
+    mmmri-pcp-tools
+```
+### Bonus: using Jupyter Lab on a remote server:
+for ease of usage, use the same port number for all forwaring command, make sure it is available everywhere (local, remote, container), I used 9876  
+* Connect to ramote on your local terminal, don't forget to forward ports:
+``` ssh -L 9876:<remote_address>:9876 <username>@<remote_address> ```
+* On remote terminal, run this command:
+``` docker run <same opition above> -p 9876:9876 mmmri-pcp-tools ```
+* On container terminal, run this:
+``` jupyter lab --ip=0.0.0.0 --port=9876 --allow-root ```
