@@ -61,7 +61,6 @@ ___out_dir___sub-1____data.nii.gz
                                         |_DTI_V3.nii.gz
 
 ```
-* `data.nii`
 
 ### FMRI and T1-weighted preprocessing pipeline:
 We expect you to have your data in the BIDS format where each subject has at least one session that contains a DWI scan. To use this tool, run the command:
@@ -71,20 +70,14 @@ We expect you to have your data in the BIDS format where each subject has at lea
 all argument are required.
 ### the output format:
 ```
-___out_dir___sub-1____data.nii.gz
-            |       |_data_ec.nii.gz
+___out_dir___sub-1____T1w.nii.gz
+            |       |_prefiltered_func_data.nii.gz
             |       |_.....
-            |       |_standard_scalars____DTI_FA.nii.gz
-            |                            |_DTI_V1.nii.gz
-            |                            |_DTI_V2.nii.gz
-            |                            |_DTI_V3.nii.gz
-            |_sub-2____data.nii.gz
-                    |_data_ec.nii.gz
+            |       |_filtered_func_data2standard.nii.gz
+            |       
+            |_sub-2___T1w.nii.gz
+                    |_prefiltered_func_data.nii.gz
                     |_.....
-                    |_standard_scalars____DTI_FA.nii.gz
-                                        |_DTI_V1.nii.gz
-                                        |_DTI_V2.nii.gz
-                                        |_DTI_V3.nii.gz
+                    |_filtered_func_data2standard.nii.gz
 
 ```
-* `data.nii`
