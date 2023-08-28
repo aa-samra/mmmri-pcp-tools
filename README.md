@@ -25,8 +25,40 @@ docker container run \
 ### Bonus: using Jupyter Lab on a remote server:
 for ease of usage, use the same port number for all forwaring command, make sure it is available everywhere (local, remote, container), I used 9876  
 * Connect to ramote on your local terminal, don't forget to forward ports:
-``` ssh -L 9876:<remote_address>:9876 <username>@<remote_address> ```
+```
+ssh -L 9876:<remote_address>:9876 <username>@<remote_address>
+ ```
 * On remote terminal, run this command:
-``` docker run <same opition above> -p 9876:9876 mmmri-pcp-tools ```
+```
+docker run <same opition above> -p 9876:9876 mmmri-pcp-tools
+```
 * On container terminal, run this:
-``` jupyter lab --ip=0.0.0.0 --port=9876 --allow-root ```
+```
+jupyter lab --ip=0.0.0.0 --port=9876 --allow-root
+```
+## Usage
+### DWI preprocessing pipeline:
+We expect you to have your data in the BIDS format where each subject has at least one session that contains a DWI scan. To use this tool, run the command:
+```
+./code/process_dwi.sh <input_bids_dir> <output_dir> <number_of_parallel_processes>
+```
+all argument are required.
+### the output format:
+```
+___out_dir___sub-1____data.nii.gz
+            |       |_data_ec.nii.gz
+            |       |_.....
+            |       |_standard_scalars____DTI_FA.nii.gz
+            |                            |_DTI_V1.nii.gz
+            |                            |_DTI_V2.nii.gz
+            |                            |_DTI_V3.nii.gz
+            |_sub-2____data.nii.gz
+                    |_data_ec.nii.gz
+                    |_.....
+                    |_standard_scalars____DTI_FA.nii.gz
+                                        |_DTI_V1.nii.gz
+                                        |_DTI_V2.nii.gz
+                                        |_DTI_V3.nii.gz
+
+```
+* `data.nii`
