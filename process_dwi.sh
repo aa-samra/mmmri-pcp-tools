@@ -21,8 +21,8 @@ process_dwi(){
     for dir in $b_dir/ses-*/dwi; do
         dwi_dir=$dir
     done
-    cp -f $dwi_dir/*.bval $o_dir/bval
-    cp -f $dwi_dir/*.bvec $o_dir/bvec
+    cp -f $dwi_dir/*.bval $o_dir/bvals
+    cp -f $dwi_dir/*.bvec $o_dir/bvecs
     cp -f $dwi_dir/*.nii.gz $o_dir/data.nii.gz
     echo $o_dir    
     eddy_correct $o_dir/data $o_dir/data_ec 0
